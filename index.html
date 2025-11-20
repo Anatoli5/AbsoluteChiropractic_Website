@@ -15,11 +15,13 @@
 </head>
 
 <body>
+  <div class="texture-overlay"></div>
   <div id="app">
     <header id="main-header">
       <nav class="glass-nav">
         <a href="#" class="logo-link">
-          <img src="/logo-icon.png" alt="Absolute Chiropractic Tree of Life Logo" class="logo-img">
+          <img src="/ChatGPT Image Nov 20, 2025, 06_01_13 PM.png" alt="Absolute Chiropractic Tree of Life Logo"
+            class="logo-img">
           <div class="logo-text">
             Absolute
             <span>Chiropractic</span>
@@ -29,11 +31,21 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="cta-button">Book Now</a>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </header>
     <main>
       <!-- Hero Section -->
@@ -47,17 +59,17 @@
           </div>
         </div>
         <div class="hero-visual">
-          <!-- Abstract 3D or Gradient Element will go here -->
-          <div class="gradient-orb"></div>
+          <div class="section-bg-layer">
+          </div>
         </div>
       </section>
       <!-- Services Section -->
       <section id="services">
-        <div class="section-header">
+        <div class="section-header reveal-up">
           <h2>Our <span class="highlight">Services</span></h2>
           <p>Holistic care designed to restore your body's natural rhythm.</p>
         </div>
-        <div class="bento-grid">
+        <div class="bento-grid reveal-up">
           <div class="bento-card service-chiro">
             <i class="fas fa-spine"></i>
             <h3>Chiropractic Care</h3>
@@ -83,10 +95,10 @@
 
       <!-- Meet the Team Section -->
       <section id="team">
-        <div class="section-header">
+        <div class="section-header reveal-up">
           <h2>Meet The <span class="highlight">Experts</span></h2>
         </div>
-        <div class="team-carousel">
+        <div class="team-carousel reveal-up">
           <div class="team-card">
             <div class="member-image"
               style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea86b48e?q=80&w=2070&auto=format&fit=crop');">
@@ -120,9 +132,43 @@
         </div>
       </section>
 
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="section-header reveal-up">
+          <h2>Start Your <span class="highlight">Journey</span></h2>
+          <p>Ready to restore your balance? Send us a message to book your appointment.</p>
+        </div>
+        <div class="contact-container reveal-up">
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" required placeholder=" ">
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" required placeholder=" ">
+              <label for="email">Email Address</label>
+            </div>
+            <div class="form-group">
+              <select id="service">
+                <option value="" disabled selected>Interested Service</option>
+                <option value="chiropractic">Chiropractic Care</option>
+                <option value="pt">Physical Therapy</option>
+                <option value="massage">Massage Therapy</option>
+                <option value="wellness">Wellness & Nutrition</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea id="message" rows="4" required placeholder=" "></textarea>
+              <label for="message">How can we help?</label>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
       <!-- Location Section -->
       <section id="location">
-        <div class="location-container">
+        <div class="location-container reveal-up">
           <div class="location-info">
             <h2>Visit <span class="highlight">Us</span></h2>
             <address>
