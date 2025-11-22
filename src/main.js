@@ -102,3 +102,41 @@ revealElements.forEach(el => revealObserver.observe(el));
 //     card.style.setProperty('--mouse-y', `${y}px`);
 //   });
 // });
+// --- FAQ Accordion ---
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Close all other items
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+      }
+    });
+
+    // Toggle current item
+    item.classList.toggle('active');
+  });
+});
+
+// --- Section Indicators ---
+const sections = document.querySelectorAll('section');
+const indicators = document.querySelectorAll('.indicator');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      indicators.forEach(indicator => {
+        indicator.classList.toggle('active', indicator.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+sections.forEach(section => sectionObserver.observe(section));
