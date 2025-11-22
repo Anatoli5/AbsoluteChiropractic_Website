@@ -182,27 +182,34 @@ h1 {
 .dark-section {
   position: relative;
   background: var(--bg-alt);
-  color: #f8fafc;
+
+  /* 
+     Color Controls 
+     Edit these two variables to control the entire section's scheme
+  */
+  --section-title-color: #1e2022;
+  /* Dark/Bold for Headings */
+  --section-body-color: #000000;
+  /* Softer for Paragraphs */
+
+  /* Apply the body color by default */
+  color: var(--section-body-color);
 }
 
-/* Dark section headings */
+/* Apply the title color variable to all headings */
+.dark-section h1,
 .dark-section h2,
 .dark-section h3,
-.dark-section h4 {
-  /* White for dark backgrounds - CHANGE THIS for different title color */
-  color: #ffffff;
+.dark-section h4,
+.dark-section h5,
+.dark-section h6 {
+  color: var(--section-title-color);
 }
 
-/* Dark section paragraph text */
-.dark-section p {
-  /* Light gray - ADJUST for better readability */
-  color: #e2e8f0;
-}
-
-/* Dark section subtitle in header */
+/* Apply the body color variable to all paragraphs */
+.dark-section p,
 .dark-section .section-header p {
-  /* Light gray subtitle */
-  color: #e2e8f0;
+  color: var(--section-body-color);
 }
 
 /* Parallax background for dark sections */
@@ -345,6 +352,10 @@ h1 {
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.nav-links a.nav-contact {
+  color: var(--accent-pop);
 }
 
 .cta-button {
@@ -775,7 +786,7 @@ h1 {
 }
 
 .stars {
-  color: #fbbf24;
+  color: var(--accent-pop);
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
@@ -1054,7 +1065,7 @@ h1 {
 }
 
 .map-frame {
-  flex: 1;
+  flex: 1.5;
   min-width: 300px;
   min-height: 500px;
 }
@@ -1297,6 +1308,10 @@ footer {
 
 .mobile-nav-links a:hover::after {
   transform: translateX(0);
+}
+
+.mobile-nav-links a.nav-contact {
+  color: var(--accent-pop);
 }
 
 /* --- Section Indicators --- */
