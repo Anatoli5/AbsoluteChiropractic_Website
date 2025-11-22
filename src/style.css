@@ -2,8 +2,8 @@
   /* Color Palette - Modern MedTech (Clean, Professional, "Wow") */
   --bg-main: #f8fafc;
   /* Slightly lighter/cooler */
-  --bg-alt: #e2e8f0;
-  /* Darkish Slate for alternating sections */
+  --bg-alt: #a0a6b8;
+  /* Darker Slate for alternating sections */
   --bg-card: #ffffff;
   --text-main: #0f172a;
   /* Darker, sharper text */
@@ -14,11 +14,11 @@
   /* Brighter Cyan */
   --accent-secondary: #334155;
   /* Dark Slate */
-  --accent-pop: #a855f7;
+  --accent-pop: #fc6e55;
   /* Vibrant Lavender - Calm & Modern */
 
   --accent-glow: rgba(6, 182, 212, 0.3);
-  --pop-glow: rgba(168, 85, 247, 0.4);
+  --pop-glow: rgba(173, 84, 56, 0.4);
 
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.6);
@@ -49,6 +49,10 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+}
+
+section {
+  scroll-margin-top: 70px;
 }
 
 /* Global Noise Texture */
@@ -158,22 +162,23 @@ h1 {
 }
 
 .glass-nav {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
-  padding: 1.3rem 2rem;
+  padding: 1.5rem 2rem;
   /* Increased another ~15% */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 .glass-nav:hover {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .logo-link {
@@ -207,7 +212,7 @@ h1 {
   font-weight: 800;
   font-size: 1.2rem;
   line-height: 1.1;
-  color: var(--accent-secondary);
+  color: #f8fafc;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: flex;
@@ -234,8 +239,8 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-main);
-  opacity: 0.8;
+  color: #e2e8f0;
+  opacity: 0.9;
   position: relative;
 }
 
@@ -252,7 +257,7 @@ h1 {
 
 .nav-links a:hover {
   opacity: 1;
-  color: var(--accent-secondary);
+  color: var(--accent-primary);
 }
 
 .nav-links a:hover::after {
@@ -295,29 +300,40 @@ h1 {
   display: none;
   background: none;
   border: none;
-  color: var(--text-main);
+  color: #f8fafc;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
 /* --- Hero Section --- */
 #hero {
-  height: 100vh;
+  min-height: 100vh;
+  /* Changed from height: 100vh to allow scrolling if content is tall */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0 5%;
+  padding: 180px 5% 5rem;
+  /* Added top padding to clear the large header */
   overflow: hidden;
-  /* Parallax Background */
-  background-image: url('/hero-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: var(--bg-main);
 }
 
-/* Overlay to ensure text readability over the pattern */
-/* Overlay to ensure text readability over the pattern */
+/* Video Background */
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Overlay to ensure text readability over video */
 #hero::before {
   content: '';
   position: absolute;
@@ -325,8 +341,8 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Darker gradient for more depth */
-  background: radial-gradient(circle at center, rgba(226, 232, 240, 0.5) 0%, rgba(226, 232, 240, 0.98) 100%);
+  /* Subtle gradient overlay to ensure text readability */
+  background: radial-gradient(circle at center, rgba(248, 250, 252, 0.3) 0%, rgba(226, 232, 240, 0.7) 100%);
   z-index: 1;
 }
 
@@ -535,8 +551,41 @@ h1 {
 /* --- Team Section --- */
 #team {
   padding: 8rem 5%;
+  position: relative;
   background: var(--bg-alt);
-  /* Darkish (Slate-200) */
+  color: #f8fafc;
+}
+
+#team h2,
+#team h3,
+#team h4 {
+  color: #ffffff;
+}
+
+#team p {
+  color: #e2e8f0;
+}
+
+#team::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.2;
+  filter: blur(3px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#team>* {
+  position: relative;
+  z-index: 1;
 }
 
 .team-carousel {
@@ -573,8 +622,55 @@ h1 {
   transition: filter 0.4s ease;
 }
 
+/* CSS Avatar Placeholders */
+.member-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: none !important;
+}
+
+/* Different gradient for each team member - Soft & Subtle */
+.member-avatar[data-initials="LF"] {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(226, 232, 240, 0.3) 100%),
+    linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+.member-avatar[data-initials="PS"] {
+  background: linear-gradient(135deg, rgba(252, 110, 85, 0.15) 0%, rgba(226, 232, 240, 0.3) 100%),
+    linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+.member-avatar[data-initials="PB"] {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(226, 232, 240, 0.3) 100%),
+    linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+/* Display initials */
+.member-avatar::before {
+  content: attr(data-initials);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--accent-secondary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
 .team-card:hover .member-image {
   filter: grayscale(0%);
+}
+
+.team-card:hover .member-avatar {
+  filter: none;
+}
+
+/* Add subtle animation on hover */
+.team-card:hover .member-avatar::before {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .member-info {
@@ -600,8 +696,42 @@ h1 {
 /* --- Location Section --- */
 #location {
   padding: 8rem 5%;
+  position: relative;
   background: var(--bg-alt);
-  /* Darkish */
+  color: #f8fafc;
+}
+
+#location h2,
+#location h3,
+#location h4 {
+  color: #ffffff;
+}
+
+#location p,
+#location address {
+  color: #e2e8f0;
+}
+
+#location::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.2;
+  filter: blur(3px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#location>* {
+  position: relative;
+  z-index: 1;
 }
 
 .location-container {
@@ -713,6 +843,17 @@ footer {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  .glass-nav {
+    padding: 0.8rem 1.5rem;
+    /* Smaller padding on mobile */
+  }
+
+  .logo-img {
+    height: 100px;
+    /* Smaller logo on mobile */
+    margin-top: -20px;
+    margin-bottom: -20px;
+  }
 
   .nav-links,
   .cta-button {
@@ -831,7 +972,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(15, 23, 42, 0.98);
   backdrop-filter: blur(20px);
   z-index: 2000;
   display: flex;
@@ -855,7 +996,7 @@ footer {
   background: none;
   border: none;
   font-size: 2rem;
-  color: var(--text-main);
+  color: #f8fafc;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -876,7 +1017,7 @@ footer {
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #f8fafc;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
