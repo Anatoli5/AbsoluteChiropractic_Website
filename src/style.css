@@ -1118,18 +1118,65 @@ footer {
 }
 
 /* --- Responsive --- */
-@media (max-width: 768px) {
+
+/* Large tablets and small desktops - reduce spacing slightly */
+@media (max-width: 1200px) {
   .glass-nav {
-    padding: 0.8rem 1.5rem;
-    /* Smaller padding on mobile */
+    padding: 1.2rem 1.8rem;
+  }
+
+  .logo-img {
+    height: 120px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .cta-button {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablets - more aggressive spacing reduction */
+@media (max-width: 1024px) {
+  .glass-nav {
+    padding: 1rem 1.5rem;
   }
 
   .logo-img {
     height: 100px;
-    /* Smaller logo on mobile */
-    margin-top: -20px;
-    margin-bottom: -20px;
+    margin-top: -25px;
+    margin-bottom: -25px;
   }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Small tablets - switch to mobile menu before collision */
+@media (max-width: 900px) {
 
   .nav-links,
   .cta-button {
@@ -1138,6 +1185,29 @@ footer {
 
   .mobile-menu-btn {
     display: block;
+  }
+
+  .logo-img {
+    height: 100px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .glass-nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo-img {
+    height: 90px;
+    margin-top: -18px;
+    margin-bottom: -18px;
+  }
+
+  .logo-text {
+    font-size: 0.9rem;
   }
 
   h1 {
