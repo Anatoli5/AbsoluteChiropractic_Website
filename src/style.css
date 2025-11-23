@@ -126,12 +126,33 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-.highlight {
-  background: linear-gradient(120deg, var(--accent-primary), var(--accent-pop));
+/* Gradient highlight for hero slogan */
+.highlight-gradient {
+  background: linear-gradient(120deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: none;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: var(--accent-glow);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+/* Solid color highlight for section names */
+.highlight {
+  color: var(--accent-primary);
   position: relative;
   display: inline-block;
 }
@@ -252,7 +273,7 @@ h1 {
 }
 
 .glass-nav {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
