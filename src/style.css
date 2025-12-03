@@ -27,14 +27,6 @@
   --neutral-900: #0f172a;
   /* Primary text, dark content */
 
-  /* Temporary Placeholder Colors (will be replaced with images) */
-  --brand-teal: #14b8a6;
-  /* Used in: tour card #3 gradient (temporary) */
-  --brand-teal-dark: #0d9488;
-  /* Used in: tour card #3 gradient (temporary) */
-  --brand-purple: #a855f7;
-  /* Used in: team avatar PB overlay (temporary) */
-
   /* ========================================
      TIER 2: GLOBAL SEMANTIC VARIABLES
      Functional roles used across multiple components
@@ -870,7 +862,7 @@ h1 {
 }
 
 .member-avatar[data-initials="PB"] {
-  --overlay-color: rgba(168, 85, 247, 0.15);
+  --overlay-color: rgba(51, 65, 85, 0.15);
   background: linear-gradient(135deg, var(--overlay-color) 0%, rgba(226, 232, 240, 0.3) 100%),
     linear-gradient(135deg, var(--avatar-base-light) 0%, var(--avatar-base-lighter) 100%);
 }
@@ -1002,8 +994,8 @@ h1 {
   --tour-gradient-cyan-end: var(--brand-cyan-dark);
   --tour-gradient-teal-start: var(--brand-cyan-dark);
   --tour-gradient-teal-end: var(--brand-cyan-darker);
-  --tour-gradient-emerald-start: var(--brand-teal);
-  --tour-gradient-emerald-end: var(--brand-teal-dark);
+  --tour-gradient-emerald-start: var(--brand-cyan-darker);
+  --tour-gradient-emerald-end: var(--brand-slate);
 
   padding: 8rem 5%;
 }
